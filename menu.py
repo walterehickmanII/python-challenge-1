@@ -52,27 +52,145 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-
-
+[
+  {
+    "Item name": "string",
+    "Price": float,
+    "Quantity": int
+  },
+  {
+    "Item name": "string",
+    "Price": float,
+    "Quantity": int
+  },
+]
+def menu_selection(menu_type):
+    if menu_type == "main":
+        main_menu()
+        user_choice = input("Enter your selection: ")
+        return user_choice
+    elif menu_type == "sub":
+        sub_menu()
+        user_choice = input("Enter your selection: ")
+        return user_choice
+    else:
+        return None
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
 
 # Customers may want to order multiple items, so let's create a continuous
 # loop
-place_order = True
-while place_order:
+while True:
+    user_input = menu_selection("main")
+    if user_input == "1":
+        print("You chose Option 1")
+    elif user_input == "2":
+        print("You chose Option 2")
+    elif user_input == "3":
+        while True:
+            sub_input = menu_selection("sub")
+            if sub_input == "a":
+                print("You chose Sub-option 1")
+            elif sub_input == "b":
+                print("You chose Sub-option 2")
+            elif sub_input == "c":
+                break
+            else:
+                print("Invalid selection")
+    elif user_input == "4":
+        print("Exiting...")
+        break
+    else:
+        print("Invalid selection")
+
     # Ask the customer from which menu category they want to order
     print("From which menu would you like to order? ")
+def main_menu():
+    print("Main Menu:")
+    print("1. Option 1")
+    print("2. Option 2")
+    print("3. Sub-menu")
+    print("4. Exit")
 
+def sub_menu():
+    print("Sub-menu:")
+    print("a. Sub-option 1")
+    print("b. Sub-option 2")
+    print("c. Back to Main Menu")
+
+def get_user_choice(menu_type):
+    if menu_type == "main":
+        main_menu()
+        user_choice = input("Enter your selection: ")
+        return user_choice
+    elif menu_type == "sub":
+        sub_menu()
+        user_choice = input("Enter your selection: ")
+        return user_choice
+    else:
+        return None
+
+# Example usage
+while True:
+    user_input = get_user_choice("main")
+    if user_input == "1":
+        print("You chose Option 1")
+    elif user_input == "2":
+        print("You chose Option 2")
+    elif user_input == "3":
+        while True:
+            sub_input = get_user_choice("sub")
+            if sub_input == "a":
+                print("You chose Sub-option 1")
+            elif sub_input == "b":
+                print("You chose Sub-option 2")
+            elif sub_input == "c":
+                break
+            else:
+                print("Invalid selection")
+    elif user_input == "4":
+        print("Exiting...")
+        break
+    else:
+        print("Invalid selection")
     # Create a variable for the menu item number
     i = 1
     # Create a dictionary to store the menu for later retrieval
-    menu_items = {}
+    menu_items = = {
+    "Snacks": {"Cookie": .99, "Banana": .69, "Apple": .49, "Granola bar": 1.99},
+    "Meals": {"Burrito": 4.49, "Teriyaki Chicken": 9.99, "Sushi": 7.49, "Pad Thai": 6.99,
+        "Pizza": {"Cheese": 8.99, "Pepperoni": 10.99, "Vegetarian": 9.99 },},
+    "Burger": { "Chicken": 7.49, "Beef": 8.49}
+}   "Drinks": { "Soda": {
+            "Small": 1.99,
+            "Medium": 2.49,
+            "Large": 2.99
+        },
+        "Tea": {
+            "Green": 2.49,
+            "Thai iced": 3.99,
+            "Irish breakfast": 2.49
+        },
+        "Coffee": {
+            "Espresso": 2.99,
+            "Flat white": 2.99,
+            "Iced": 3.49
+        }}
+        "Dessert":{ "Chocolate lava cake": 10.99,
+        "Cheesecake": {
+            "New York": 4.99,
+            "Strawberry": 6.49
+        },
+        "Australian Pavlova": 9.99,
+        "Rice pudding": 4.99,
+        "Fried banana": 4.49}
 
     # Print the options to choose from menu headings (all the first level
+
     # dictionary items in menu).
-    for key in menu.keys():
-        print(f"{i}: {key}")
+   print("Menu Items:")
+for item, details in menu_item.items():
+    print(f"{item}: Price - ${details['price']}, Quantity - {details['quantity']}")
         # Store the menu category associated with its menu item number
         menu_items[i] = key
         # Add 1 to the menu item number
@@ -80,6 +198,8 @@ while place_order:
 
     # Get the customer's input
     menu_category = input("Type menu number: ")
+    get_user_choice = input(user_input)
+    get_user_choice = input(sub_input)
 
     # Check if the customer's input is a number
     if menu_category.isdigit():
@@ -118,9 +238,16 @@ while place_order:
                     }
                     i += 1
             # 2. Ask customer to input menu item number
-
+              menu_items = input()  
 
             # 3. Check if the customer typed a number
+user_input = input("Enter a number: ")
+
+try:
+    Quantity = float(user_input)  # Convert input to float
+    print("Input is a number.")
+except ValueError:
+    print("Input is not a number.")
 
                 # Convert the menu selection to an integer
 
@@ -128,6 +255,21 @@ while place_order:
                 # 4. Check if the menu selection is in the menu items
 
                     # Store the item name as a variable
+# Define item names
+item_names = ["item1", "item2", "item3"]
+
+# Initialize an empty dictionary to store item details
+menu_item = {"Cookie", "Banana", "Apple", "Granola bar","Burrito": 4.49, "Teriyaki Chicken": 9.99, "Sushi": 7.49, "Pad Thai"
+"Pizza", "Burger", "Drinks", "dessert",  }
+
+# Populate the dictionary with item names
+for item_name in item_names:
+    menu_item[item_name] = {"price": 0.0, "quantity": 0}
+
+# Example usage:
+print("Menu Items:")
+for item, details in menu_item.items():
+    print(f"{item}: Price - ${details['price']}, Quantity - {details['quantity']}")
 
 
                     # Ask the customer for the quantity of the menu item
